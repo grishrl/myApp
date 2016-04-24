@@ -1,17 +1,19 @@
-angular.module("creditcard",[])
-.controller('transactionController',function(){
-	this.message = [
-	{
-		"date":"10/10/10",
-		"amount":50
-	},
-	{
-		"date":"10/10/10",
-		"amount":100
-	},
-	{
-		"date":"10/10/10",
-		"amount":25
-	}
-	];
-});
+angular.module("creditcard",['ngRoute'])
+.config(function($routeProvider){
+	$routeProvider
+	.when('/',{
+		templateUrl:'client/templates/transactions.html'
+	})
+	.when('/transactions',{
+		templateUrl:'client/templates/transactions.html'
+	})
+	.when('/payment',{
+	templateUrl:'client/templates/payment.html'
+	})
+	.otherwise({redirectTo:'/transactions'})
+	})
+.controller('transactionController',['$http',function($http){
+	$http({method:'GET',url:'/transacts'}).then((res)=>{
+		this.message=res.data;
+	},function(){console.log("no data returned")});
+}]);

@@ -20,8 +20,10 @@
 <script type="text/javascript" src="client/credit.js"></script>
 <body ng-app="creditcard">
   <h1>My App</h1>
-  <div ng-controller='transactionController as transCtrl'>
-  <div ng-repeat="record in transCtrl.message">Date:{{record.date}} Amount:{{record.amount}}</div>
+  <div>Balance ####</div>
+  <a href="#/transactions">Transactions</a>
+  <a href="#/payment">Payment</a>
+  <div ng-View>###Changing content here###</div>
 </div>
 </body>
 </html>
