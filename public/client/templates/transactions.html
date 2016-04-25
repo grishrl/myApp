@@ -1,2 +1,9 @@
 <div ng-controller='transactionController as transCtrl'>
-  <div ng-repeat="record in transCtrl.message">Date:{{record.date}} Amount:{{record.amount}}</div>
+<div ng-controller="submitController as subCtrl">
+<form name="submit" novalidate class="simple-form">
+<div>Amount<input type="number" ng-model="amount" name="Payment" required></div>
+<input type="button" value="Enter" ng-Click="submit.$valid && save(amount)">
+</form>
+</div>
+  <div ng-repeat="record in transCtrl.message" ng-style="record.type=='debit'&&{color:'#71EF15'}||{color:'black'}">
+  Date:{{record.date|date:'MM/dd/yy'}} || Amount:{{record.amount}} || Total:{{record.total}}</div>

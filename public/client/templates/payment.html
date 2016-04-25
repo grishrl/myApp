@@ -1,4 +1,6 @@
-<form>
-<div>Amount</div><input type="text" name="Payment">
-<div>Enter</div>
+<div ng-controller="submitController as subCtrl">
+<form name="submit" novalidate class="simple-form">
+<div>Amount<input type="number" ng-model="amount" name="Payment" required></div>
+<input type="button" value="Enter" ng-Click="submit.$valid && save(amount)">
 </form>
+</div>

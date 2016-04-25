@@ -18,9 +18,13 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-route.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-resource.js"></script>
 <script type="text/javascript" src="client/credit.js"></script>
+<link rel="stylesheet" type="text/css" href="client/stylesheet.css">
+<script src="client/scripts/underscore/underscore.js"></script>
 <body ng-app="creditcard">
   <h1>My App</h1>
-  <div>Balance ####</div>
+  <div ng-controller="totalController as totCtrl">
+  <div>Balance {{totCtrl.message}}</div>
+  </div>
   <a href="#/transactions">Transactions</a>
   <a href="#/payment">Payment</a>
   <div ng-View>###Changing content here###</div>
